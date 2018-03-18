@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include '_head.html' %}
+</head>
+
+<body>
+    <header>
+        {% include '_nav.html' %}
+    </header>
+    <main>
+        <div class="container">
+            <div class="row ">
+                    <div class="col-md-12 mx-auto">
+                            {% include '_messages.html' %}
+                     </div>
+                     {% if session['username'] %}
+                <div class="col-md-12 mx-auto">          
+                    <a class="add-item-link" href="{{url_for('newItem', category_id = category_id)}}">Add new item</a>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="row ">
+                {% for item in items %}
+                <div class="col-md-12 item-container mx-auto ">
+
+                    <img class="item-img"  src="{{ url_for('static', filename ='img/{}'.format( item.picture )) }}" alt="img here">
+
+                    <div class="item-info">
+                        <h4 class="item-name">{{item.name}}</h4>
+                        <p class="description">{{item.description}}</p>
+                        <span class="price">${{item.price}}</span>
+                    </div>
+                    {% if session['username'] %}
+                    <div class="item-admin ">
+                        <a href="{{url_for('editItem', category_id = category_id, item_id = item.id)}}" class="edit-item-link">Edit </a>
+                        <a href="{{url_for('deleteItem',category_id = category_id,  item_id = item.id)}}" class="delete-item-link">Delete</a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </main>
+    {% include '_script.html' %}
+</body>
+
+</html>

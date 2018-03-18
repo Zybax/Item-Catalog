@@ -1,0 +1,241 @@
+html {
+	font-size: 17px;
+}
+
+a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	color: inherit;
+}
+
+form{
+	width: 80%;
+}
+
+footer{
+	margin-bottom: 5rem;
+}
+
+.navbar {
+	width: 100%;
+}
+
+.home-header {
+	height: 500px;
+	background: url("../img/banner.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: right;
+	background-attachment: fixed;
+	-webkit-box-shadow: inset 0 0 3000px #00000096;
+	box-shadow: inset 0 0 3000px #00000096;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.catalog-name-title {
+	color: white;
+	text-shadow: 2px 2px 10px black;
+	font-size: 5rem;
+}
+
+.col-md-3 {
+	overflow: hidden;
+	-webkit-box-shadow: 1px 1px 5px #00000096;
+	box-shadow: 1px 1px 5px #00000096;
+	max-width: 300px;
+	margin: auto;
+}
+
+.category-container {
+	-webkit-transition: all 500ms ease;
+	transition: all 500ms ease;
+	overflow: hidden;
+	z-index: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-preferred-size: 0;
+	    flex-basis: 0;
+	-ms-flex-flow: column wrap;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-flow: column wrap;
+}
+
+.category-container:hover {
+	-webkit-box-shadow: inset 0 0 1000px #00000096;
+	box-shadow: inset 0 0 1000px #00000096;
+	cursor: pointer;
+}
+
+.category-container:hover .category-img {
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+	-webkit-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+
+.category-container:hover .category-name {
+	top: 0px;
+	opacity: 1;
+	-webkit-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+.category-img {
+	max-width: 300px;
+	max-height: 160px;
+	z-index: -2;
+
+}
+
+.category-name {
+	color: white;
+	font-size: 2.5rem;
+	text-shadow: 2px 2px 5px black;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: -200px;
+	z-index: 0;
+	-ms-flex-item-align: center;
+	align-self: center;
+	position: absolute;
+	padding-top: 23%;
+}
+
+.category-admin {
+	z-index: 3;
+	color: white;
+	background: #1b1b1b;
+	width: 100%;
+}
+
+.category-link:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.edit-link {
+	color: white;
+}
+
+.delete-link {
+	color: white;
+}
+
+.item-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.item-info {
+	width: 100%;
+	text-align: center;
+}
+
+.item-img {
+	width: 300px;
+	height: auto;
+}
+
+.price {
+	font-weight: bold;
+}
+
+.div-login{
+	margin-top:7%;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+	.navbar-nav {
+		width: auto;
+	}
+	form{
+		width: 20%;
+	}
+	.log-button {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+	}
+	.category-name {
+		font-size: 2rem;
+	}
+	.catalog-name-title {
+		color: white;
+		text-shadow: 2px 2px 10px black;
+		font-size: 6.5rem;
+	}
+	.col-md-3 {
+		margin: 0;
+		max-width: 100%;
+	}
+
+	.category-img {
+		max-width: 300px;
+		max-height: 160px;
+		z-index: -2;
+
+	}
+
+	/*Item list styles*/
+	.item-container {
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+		margin-bottom: 20px;
+		min-width: 100%;
+		max-width: 100%;
+	}
+	.item-info {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+		width: auto;
+		text-align: justify;
+		margin-left: 20px;
+		width: 50%;
+	}
+	.item-img {
+		height: 150px;
+		width: 250px;
+	}
+	.item-admin {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+		text-align: right;
+		width: auto;
+		width: 10%;
+	}
+}
+
+@media screen and (min-width: 1224px) {}

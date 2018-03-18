@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include '_head.html' %}
+</head>
+
+<body>
+    <header class="d-flex align-items-start justify-content-center home-header">
+            {% include '_nav.html' %}
+        <h1 class="catalog-name-title">Food Catalog</h1>
+    </header>
+    <main "category-list">
+     
+        <div class="container my-2 category-list">
+            <div class="row">
+                <div class="col-md-12">
+                    {% include '_messages.html' %}
+                    {% if session['username'] %}
+                    <a class="add-category-link" href="{{url_for('newCategory')}}">Add new category</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+            {% for category in categories %}
+                <div class="col-md-3 px-0">
+                    <div class="category-container">
+                        
+                        <a href="{{url_for('showItem', category_id = category.id)}}" class="category-name category-link" >{{category.name}}</a>
+                    
+                        <img class=" category-img " src="{{ url_for('static', filename ='img/{}'.format( category.picture )) }}" alt="category-img">
+                        {% if session['username'] %}
+                        <div class="category-admin d-flex justify-content-around">
+                            <a  href='{{url_for('editCategory', category_id = category.id)}}'class="edit-link">Edit</a>
+                            <a href='{{url_for('deleteCategory', category_id = category.id)}}' class="delete-link">Delete</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+              {% endfor %}  
+
+
+
+            </div>
+        </div>
+
+    </main>
+    {% include '_script.html' %}
+    <footer>
+<!-- TODO -->
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include '_head.html' %}
+</head>
+
+<body>
+  <header>
+      {% include '_nav.html' %}
+  </header>
+  <main>
+    <div class="container">
+        {% if category %}
+
+        <div class="row">
+          <div class="col-md-12">
+              <form action="{{url_for('deleteCategory', category_id = category.id)}}" method="post">
+          
+                  <p>Really delete <strong>{{category.name}}</strong>?</p>
+              
+                  <input type="submit" value="Delete">
+                  <a href="{{url_for('showCategory')}}">Cancel</a>
+              
+                </form>
+          </div>
+        </div>
+      
+      {% endif %}
+    </div>
+  </main>
+  {% include '_script.html' %}
+</body>
+
+</html>
+
+
+

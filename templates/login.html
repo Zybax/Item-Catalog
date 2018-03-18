@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include '_head.html' %}
+</head>
+
+<body>
+        {% include '_nav.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                    {% include '_messages.html' %}
+            </div>
+        </div>
+        <div class="row text-center div-login">
+                <div class="col-md-12">
+                    <h2>Log in with Google</h2>
+                </div>
+            <div class="col-md-12 mt-4">
+                <div id="signinButton signinButton">
+                    <span class="g-signin" 
+                    data-scope="openid email" 
+                    data-clientid="521849747297-tsmjigl9a81ap061aotk61v1117l77u1.apps.googleusercontent.com"
+                    data-redirecturi="http://localhost:5000" 
+                    data-accesstype="offline" 
+                    data-cookiepolicy="single_host_origin" 
+                    data-callback="signInCallback"
+                    data-approvalprompt="force">
+                    </span>
+                </div>
+                </div>
+            </div>
+        </div>
+    
+
+    {% include '_script.html' %}
+    <script src="//apis.google.com/js/platform.js?onload=start">
+    </script>
+    <script>
+        function signInCallback(authResult) {
+            if (authResult['code']) {
+                $.ajax({
+                    type: 'POST',
+                    url: "{{url_for('gconnect', state = STATE ) }}",
+                    processData: false,
+                    data: authResult['code'],
+                    contentType: 'application/octet-stream; charset=utf-8',
+                    success: function (result) {
+                        // Handle or verify the server response if necessary.
+                        if (result) {
+                            setTimeout(function () {
+                                window.location.href = "{{url_for('showCategory')}}";
+                            }, 500);
+
+                        } else if (authResult['error']) {
+                            console.log('There was an error: ' + authResult['error']);
+                        } else {
+                            console.log(
+                                'Failed to make a server-side call. Check your configuration and console.'
+                            );
+                        }
+                    }
+
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+SQLAlchemy==1.2.4
+
+httplib2==0.10.3
+
+requests==2.18.4
+
+Flask==0.12.2
+
+Werkzeug==0.14.1
+
+google_api_python_client==1.6.5

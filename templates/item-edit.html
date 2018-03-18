@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include '_head.html' %}
+</head>
+<body>
+    <header>
+        {% include '_nav.html' %}
+    </header>
+  <main>
+    
+      {% if category %}  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            {% include '_messages.html' %}
+            <h2>{{category.name}}</h2>
+        </div>
+        <div class="col-md-12">
+               
+            <form action="{{url_for('editItem',item_id= item.id, category_id = category.id)}}" method="post">
+          
+              <label>Name:</label>
+              <input type="text" name="name" placeholder="Name" value="{{item.name}}">
+            
+              <label>Description:</label>
+              <input type="text" name="description" placeholder="Description" value="{{item.description}}">
+              
+          
+              <label>Price:</label>
+              <input type="text" name="price" placeholder="Price" value="{{item.price}}">
+              
+          
+              <input type="submit">
+          
+              <a href="{{url_for('showItem', category_id=category.id) }}">Cancel</a>
+          
+            </form>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </main>
+  {% include '_script.html' %}
+</body>
+</html>
